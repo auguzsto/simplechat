@@ -4,7 +4,7 @@ abstract class IMessage {
   Stream<List<Map<String, dynamic>>> get(String from);
   Future<void> insert(String from, Map<String, dynamic> data);
   Future<void> update(String from);
-  Future<void> delete(String from);
+  Future<void> delete(String from, String uuid);
 }
 
 class MessageController implements IMessage {
@@ -24,5 +24,7 @@ class MessageController implements IMessage {
   Future<void> update(String from) async {}
 
   @override
-  Future<void> delete(String from) async {}
+  Future<void> delete(String from, String uuid) async {
+    await supabase.from(from).delete().eq('uuid', uuid);
+  }
 }

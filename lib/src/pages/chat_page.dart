@@ -38,7 +38,13 @@ class ChatPage extends StatelessWidget {
                     color: Theme.of(context).primaryColorLight,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(messagemModel.message ?? "Não há dados"),
+                      child: GestureDetector(
+                        onLongPress: () async {
+                          await _messageController.delete(
+                              Tables.messages, messagemModel.uuid!);
+                        },
+                        child: Text(messagemModel.message ?? "Não há dados"),
+                      ),
                     ),
                   ),
                 ),
