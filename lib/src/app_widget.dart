@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simplechat/src/pages/chat_page.dart';
+import 'package:simplechat/src/pages/chat/chat_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
